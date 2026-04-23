@@ -11,7 +11,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to top, #0f172a, #1e293b);
     color: white;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 #intro {
@@ -30,9 +32,11 @@ body {
 
 .container {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
     max-width: 500px;
-    margin: auto;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .photo {
@@ -45,6 +49,9 @@ body {
     filter: blur(12px);
     transform: scale(1.1);
     transition: 2s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .clear {
     filter: blur(0);
@@ -68,11 +75,12 @@ body {
 
 /* stars */
 .star {
-    position: absolute;
+    position: fixed;
     width: 2px;
     height: 2px;
     background: white;
     animation: fall linear infinite;
+    pointer-events: none;
 }
 @keyframes fall {
     from { transform: translateY(-10px); }
@@ -81,12 +89,13 @@ body {
 
 /* hearts */
 .heart {
-    position: absolute;
+    position: fixed;
     width: 10px;
     height: 10px;
     background: pink;
     transform: rotate(45deg);
     animation: floatUp linear infinite;
+    pointer-events: none;
 }
 .heart::before,
 .heart::after {
