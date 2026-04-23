@@ -200,6 +200,33 @@ setInterval(()=>{
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),6000);
 },300);
+
+/* auto scroll */
+let scrollPosition = 0;
+let isScrolling = false;
+let startTime = 28000; // mulai scroll setelah 28 detik
+let scrollDuration = 15000; // durasi scroll 15 detik (sampai text t6 selesai)
+
+setTimeout(()=>{
+    isScrolling = true;
+    const startScroll = Date.now();
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    
+    function autoScroll() {
+        if (!isScrolling) return;
+        
+        const elapsed = Date.now() - startScroll;
+        const progress = Math.min(elapsed / scrollDuration, 1);
+        
+        window.scrollTo(0, maxScroll * progress);
+        
+        if (progress < 1) {
+            requestAnimationFrame(autoScroll);
+        }
+    }
+    
+    autoScroll();
+}, startTime);
 </script>
 
 </body>
