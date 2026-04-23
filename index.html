@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Ayuni 🤍</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to top, #0f172a, #1e293b);
+    color: white;
+    overflow: hidden;
+}
+
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    z-index: 99;
+    animation: fadeOut 3s forwards 2.5s;
+}
+@keyframes fadeOut { to {opacity:0; visibility:hidden;} }
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.photo {
+    width: 170px;
+    height: 220px;
+    border-radius: 20px;
+    margin-top: 20px;
+    object-fit: cover;
+    object-position: top;
+    filter: blur(12px);
+    transform: scale(1.1);
+    transition: 2s ease;
+}
+.clear {
+    filter: blur(0);
+    transform: scale(1);
+}
+
+.text-part {
+    opacity: 0;
+    margin-top: 18px;
+    line-height: 1.8;
+    font-size: 15px;
+    transition: 1.5s;
+}
+.show {
+    opacity: 1;
+}
+
+.glow {
+    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+/* stars */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    from { transform: translateY(-10px); }
+    to { transform: translateY(100vh); }
+}
+
+/* hearts */
+.heart {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: floatUp linear infinite;
+}
+.heart::before,
+.heart::after {
+    content:'';
+    width:10px;height:10px;
+    background:pink;
+    border-radius:50%;
+    position:absolute;
+}
+.heart::before {top:-5px;}
+.heart::after {left:-5px;}
+
+@keyframes floatUp {
+    from {bottom:-10px;}
+    to {bottom:100%; opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">Untuk Ayuni 🤍</div>
+
+<div class="container">
+    <h2 class="glow">Ayuni 🤍</h2>
+
+    <img src="IMG-20260423-WA0025.jpg" class="photo" id="photo">
+
+    <div id="t1" class="text-part glow">
+        Hai Sayang<br><br>
+        Aku tau badan kamu lagi pegal<br>
+        cape<br>
+        dan hari ini mungkin terasa panjang banget 🥺
+    </div>
+
+    <div id="t2" class="text-part glow">
+        Kalau aku ada di sana sekarang<br>
+        aku nggak bakal banyak ngomong<br><br>
+        aku cuma bakal pelan-pelan bilang<br><br>
+        "udah yaa sayang istirahat dulu" 🤍
+    </div>
+
+    <div id="t3" class="text-part glow">
+        Terus aku biarin kamu rebahan<br>
+        tenang…<br>
+        tanpa harus mikirin apa-apa
+    </div>
+
+    <div id="t4" class="text-part glow">
+        Sayang<br><br>
+        kamu itu kuat<br>
+        tapi kamu juga manusia<br><br>
+        cape itu wajar<br>
+        lelah itu wajar
+    </div>
+
+    <div id="t5" class="text-part glow">
+        jadi jangan dipaksa yaa<br><br>
+        pelan-pelan aja<br>
+        istirahat dulu<br>
+        kamu ngga harus selalu kuat 💗
+    </div>
+
+    <div id="t6" class="text-part glow">
+        dan di antara capekmu malam ini<br><br>
+        aku harap kamu masih inget<br><br>
+        <b>ada aku di sini, yang selalu peduli sama kamu 🤍</b>
+    </div>
+
+</div>
+
+<script>
+/* timing muncul per bagian */
+setTimeout(()=>document.getElementById("t1").classList.add("show"),3000);
+setTimeout(()=>document.getElementById("t2").classList.add("show"),7000);
+setTimeout(()=>document.getElementById("t3").classList.add("show"),11000);
+setTimeout(()=>document.getElementById("t4").classList.add("show"),15000);
+setTimeout(()=>document.getElementById("t5").classList.add("show"),19000);
+setTimeout(()=>document.getElementById("t6").classList.add("show"),23000);
+
+/* photo clear */
+setTimeout(()=>{
+    document.getElementById("photo").classList.add("clear");
+},6000);
+
+/* stars */
+setInterval(()=>{
+    let s=document.createElement("div");
+    s.className="star";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(2+Math.random()*3)+"s";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),5000);
+},200);
+
+/* hearts */
+setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
